@@ -43,11 +43,12 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         holder.itemFavorito.setText("Añadir <3");
 
         holder.itemFavorito.setOnClickListener(v -> {
-            MyOpenHelper moh = new MyOpenHelper(v.getContext());
+            Helpers.toastMod(v.getContext());
+            /*MyOpenHelper moh = new MyOpenHelper(v.getContext());
             SQLiteDatabase db = moh.getWritableDatabase();
             if (productos.get(position).getFavorito() == 0) {
                 ProductoController.anadirFavorito(productos.get(position).getId(), moh, db, v.getContext());
-            }
+            }*/
         });
 
 

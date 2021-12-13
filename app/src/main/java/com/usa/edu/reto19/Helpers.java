@@ -47,9 +47,9 @@ public class Helpers{
     @SuppressLint("NonConstantResourceId")
     public static void menuSelected(@NonNull Context context,@NonNull MenuItem item){
         switch (item.getItemId()) {
-            case R.id.op0favoritos:
+            /*case R.id.op0favoritos:
                 context.startActivity(new Intent(context, FavoritosActivity.class));
-                break;
+                break;*/
             case R.id.op1Productos:
                 context.startActivity(new Intent(context, ProductosActivity.class));
                 break;
