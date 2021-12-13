@@ -16,24 +16,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.usa.edu.reto19.vista.ProductosActivity;
 
+import java.util.Objects;
+
 /**
  * @author Kreisler
- * @version 2.0
+ * @version 3.0
  */
 public class MainActivity extends AppCompatActivity {
-    ImageView imagenPresentacion;
+    ImageView imagenSplash;
     /**
      *
      * @param sInstanceState sInstanceState
      */
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle sInstanceState) {
         super.onCreate(sInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         try{
-            imagenPresentacion = (ImageView)findViewById(R.id.imagenPresentacion);
+            imagenSplash = (ImageView)findViewById(R.id.imagenPresentacion);
             new Handler().postDelayed(() -> {
                 startActivity(new Intent(MainActivity.this, ProductosActivity.class));
                 finish();
