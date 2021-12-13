@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.usa.edu.reto19.vista.ProductosActivity;
 
+import java.util.Objects;
+
 /**
  * @author Kreisler
  * @version 2.0
@@ -29,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle sInstanceState) {
         super.onCreate(sInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_main);
+        /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         try{
@@ -41,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             Log.e("ERROR DE APP: ", e.getMessage());
             e.printStackTrace();
-        }
-        //Helpers.actionBar(Objects.requireNonNull(getSupportActionBar()));
+        }*/
+        Helpers.actionBar(Objects.requireNonNull(getSupportActionBar()));
         TextView txtHome = findViewById(R.id.txtHomeInicio);
-        txtHome.setText("¡Cargando...!");
+        txtHome.setText("¡Inicio!");
     }
 
     /**
