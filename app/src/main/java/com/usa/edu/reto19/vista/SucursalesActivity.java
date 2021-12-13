@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.usa.edu.reto19.Helpers;
 import com.usa.edu.reto19.R;
@@ -23,6 +25,15 @@ public class SucursalesActivity extends AppCompatActivity {
 
         TextView txtHome = findViewById(R.id.txtHomeSucursales);
         txtHome.setText("¡Sucursales!");
+
+        Button btn1 = findViewById(R.id.itemBtnSucur1);
+        btn1.setOnClickListener(v -> {
+            Helpers.toastMod(v.getContext());
+        });
+        Button btn2 = findViewById(R.id.itemBtnSucur2);
+        btn2.setOnClickListener(v -> {
+            Helpers.toastMod(v.getContext());
+        });
     }
 
     @Override
