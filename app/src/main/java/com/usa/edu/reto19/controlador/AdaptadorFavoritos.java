@@ -36,12 +36,12 @@ public class AdaptadorFavoritos extends RecyclerView.Adapter<AdaptadorFavoritos.
     public void onBindViewHolder(@NonNull ViewHolderFavoritos holder, int position) {
         holder.itemNombre.setText(productos.get(position).getNombre());
         holder.itemImagen.setImageResource(productos.get(position).getImagen());
-        holder.itemPrecio.setText(""+productos.get(position).getPrecio());
-        holder.itemFavorito.setOnClickListener(v -> {
+        holder.itemPrecio.setText("" + productos.get(position).getPrecio());
+        holder.itemBtn.setOnClickListener(v -> {
             MyOpenHelper moh = new MyOpenHelper(v.getContext());
             SQLiteDatabase db = moh.getWritableDatabase();
 
-                ProductoController.removerFavorito(productos.get(position).getId(), moh, db, v.getContext());
+            ProductoController.removerFavorito(productos.get(position).getId(), moh, db, v.getContext());
 
         });
     }
@@ -56,15 +56,15 @@ public class AdaptadorFavoritos extends RecyclerView.Adapter<AdaptadorFavoritos.
         TextView itemNombre;
         ImageView itemImagen;
         TextView itemPrecio;
-        Button itemFavorito;
+        Button itemBtn;
 
         public ViewHolderFavoritos(@NonNull View itemView) {
             super(itemView);
 
-            itemNombre = (TextView) itemView.findViewById(R.id.itemNombreFav);
-            itemImagen = (ImageView) itemView.findViewById(R.id.itemImagenFav);
-            itemPrecio = (TextView) itemView.findViewById(R.id.itemPrecioFav);
-            itemFavorito = (Button) itemView.findViewById(R.id.itemBtnFavorito);
+            itemNombre = (TextView) itemView.findViewById(R.id.itemNombreFavorito);
+            itemImagen = (ImageView) itemView.findViewById(R.id.itemImagenFavorito);
+            itemPrecio = (TextView) itemView.findViewById(R.id.itemPrecioFavorito);
+            itemBtn = (Button) itemView.findViewById(R.id.itemBtnFavorito);
         }
     }
 }

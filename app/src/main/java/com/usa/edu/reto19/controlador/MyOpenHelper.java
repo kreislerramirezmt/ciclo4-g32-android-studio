@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 
 public class MyOpenHelper extends SQLiteOpenHelper {
-    public static int VERSION = 4;
+    public static int VERSION = 5;
 
     public MyOpenHelper(@Nullable Context context) {
         super(context, DBLocal.DATABASE_NAME, null, VERSION);

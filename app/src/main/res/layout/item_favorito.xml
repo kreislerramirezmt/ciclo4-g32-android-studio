@@ -10,17 +10,17 @@
     android:layout_marginRight="10dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="147dp"
+        android:layout_height="200dp"
         android:orientation="horizontal"
         tools:ignore="UselessParent">
 
         <ImageView
-            android:id="@+id/itemImagenFav"
+            android:id="@+id/itemImagenFavorito"
             android:layout_width="371dp"
             android:layout_height="147dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/postregalleta"
-            tools:srcCompat="@drawable/postregalleta" />
+            app:srcCompat="@drawable/sucursalbogota"
+            tools:srcCompat="@drawable/sucursalbogota" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,16 +35,17 @@
 
                 <TextView
                     android:layout_margin="10dp"
-                    android:id="@+id/itemNombreFav"
+                    android:textAlignment="center"
+                    android:id="@+id/itemNombreFavorito"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="Favorito"
                     android:textSize="20sp"
                     />
 
                 <TextView
                     android:layout_margin="10dp"
-                    android:id="@+id/itemPrecioFav"
+                    android:id="@+id/itemPrecioFavorito"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="" />
@@ -53,7 +54,7 @@
                     android:layout_margin="10dp"
                     android:id="@+id/itemBtnFavorito"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:text="Remover 💔" />
             </LinearLayout>
         </LinearLayout>

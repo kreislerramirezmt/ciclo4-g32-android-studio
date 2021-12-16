@@ -2,32 +2,39 @@ package com.usa.edu.reto19.vista;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.usa.edu.reto19.vista.databinding.ActivityMapsBinding;
+import com.usa.edu.reto19.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private ActivityMapsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMapsBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_maps);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        int apiConnect = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
+        if(apiConnect == ConnectionResult.SUCCESS){
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+        }else{
+            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(apiConnect, (Activity) getApplicationContext(), 10);
+            dialog.show();
+        }
     }
 
     /**
@@ -44,8 +51,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng sucursalocation = new LatLng(9.3152103,-75.4018506);
+
+        // Add a marker in Sydney and move the camera
+        mMap.addMarker(new MarkerOptions().position(sucursalocation).title("Estamos aqui"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sucursalocation));
+
+        float zoom = 16;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sucursalocation, zoom));
     }
 }

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.usa.edu.reto19.Helpers;
 import com.usa.edu.reto19.modelo.ProductoModels;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import com.usa.edu.reto19.R;
@@ -39,16 +40,14 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
     public void onBindViewHolder(ViewHolderProductos holder, int position) {
         holder.itemNombre.setText(productos.get(position).getNombre());
         holder.itemImagen.setImageResource(productos.get(position).getImagen());
-        holder.itemPrecio.setText("" + productos.get(position).getPrecio());
-        holder.itemFavorito.setText("Añadir <3");
-
-        holder.itemFavorito.setOnClickListener(v -> {
-            Helpers.toastMod(v.getContext());
-            /*MyOpenHelper moh = new MyOpenHelper(v.getContext());
+        NumberFormat formatoImporte = NumberFormat.getCurrencyInstance();
+        holder.itemPrecio.setText(formatoImporte.format(productos.get(position).getPrecio()));
+        holder.itemBtnProducto.setOnClickListener(v -> {
+            MyOpenHelper moh = new MyOpenHelper(v.getContext());
             SQLiteDatabase db = moh.getWritableDatabase();
             if (productos.get(position).getFavorito() == 0) {
                 ProductoController.anadirFavorito(productos.get(position).getId(), moh, db, v.getContext());
-            }*/
+            }
         });
 
 
@@ -64,15 +63,15 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         TextView itemNombre;
         ImageView itemImagen;
         TextView itemPrecio;
-        Button itemFavorito;
+        Button itemBtnProducto;
 
         public ViewHolderProductos(@NonNull View itemView) {
             super(itemView);
 
-            itemNombre = (TextView) itemView.findViewById(R.id.itemNombre);
-            itemImagen = (ImageView) itemView.findViewById(R.id.itemImagen);
-            itemPrecio = (TextView) itemView.findViewById(R.id.itemPrecio);
-            itemFavorito = (Button) itemView.findViewById(R.id.itemFavorito);
+            itemNombre = (TextView) itemView.findViewById(R.id.itemNombreProducto);
+            itemImagen = (ImageView) itemView.findViewById(R.id.itemImagenProducto);
+            itemPrecio = (TextView) itemView.findViewById(R.id.itemPrecioProducto);
+            itemBtnProducto = (Button) itemView.findViewById(R.id.itemBtnProducto);
         }
     }
 }

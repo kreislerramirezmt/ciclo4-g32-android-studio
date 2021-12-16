@@ -21,8 +21,8 @@ public class Contenedor {
     public static ArrayList<Sucursal> getSucursales(){
         ArrayList<Sucursal> sucursales = new ArrayList<>();
 
-        sucursales.add(new Sucursal("Sucursal de Bogotá", 9.3152103,-75.4018506));
-        sucursales.add(new Sucursal("Sucursal de Sincelejo", 9.3152103,-75.4018506));
+        sucursales.add(new Sucursal("Sucursal de Bogotá", 9.3152103,-75.4018506,R.drawable.sucursalbogota));
+        sucursales.add(new Sucursal("Sucursal de Sincelejo", 9.3152103,-75.4018506,R.drawable.sucursalsincelejo));
 
         return sucursales;
     }

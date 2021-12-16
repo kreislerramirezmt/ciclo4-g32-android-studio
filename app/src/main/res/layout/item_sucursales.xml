@@ -15,7 +15,7 @@
         tools:ignore="UselessParent">
 
         <ImageView
-            android:id="@+id/itemImagenSuc1"
+            android:id="@+id/itemImagenSucursal"
             android:layout_width="371dp"
             android:layout_height="147dp"
             android:layout_weight="1"
@@ -35,7 +35,7 @@
 
                 <TextView
                     android:layout_margin="10dp"
-                    android:id="@+id/itemNombreSuc1"
+                    android:id="@+id/itemNombreSucursal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Sucursal de Bogotá"
@@ -51,7 +51,7 @@
 
                 <Button
                     android:layout_margin="10dp"
-                    android:id="@+id/itemBtnSucur1"
+                    android:id="@+id/itemBtnSucursal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ver en el mapa 🌍" />
