@@ -2,6 +2,7 @@ package com.usa.edu.reto19.controlador;
 
 import com.usa.edu.reto19.R;
 import com.usa.edu.reto19.modelo.ProductoModels;
+import com.usa.edu.reto19.modelo.Sucursal;
 
 import java.util.ArrayList;
 
@@ -16,5 +17,13 @@ public class Contenedor {
         productos.add(new ProductoModels("Postre de Manzana", 17000, R.drawable.postremanzana, 0));
 
         return productos;
+    }
+    public static ArrayList<Sucursal> getSucursales(){
+        ArrayList<Sucursal> sucursales = new ArrayList<>();
+
+        sucursales.add(new Sucursal("Sucursal de Bogotá", 9.3152103,-75.4018506));
+        sucursales.add(new Sucursal("Sucursal de Sincelejo", 9.3152103,-75.4018506));
+
+        return sucursales;
     }
 }
