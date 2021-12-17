@@ -10,17 +10,17 @@
     android:layout_marginRight="10dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="147dp"
+        android:layout_height="200dp"
         android:orientation="horizontal"
         tools:ignore="UselessParent">
 
         <ImageView
-            android:id="@+id/itemImagen"
+            android:id="@+id/itemImagenProducto"
             android:layout_width="371dp"
             android:layout_height="147dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/postregalleta"
-            tools:srcCompat="@drawable/postregalleta" />
+            app:srcCompat="@drawable/sucursalbogota"
+            tools:srcCompat="@drawable/sucursalbogota" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,30 +35,29 @@
 
                 <TextView
                     android:layout_margin="10dp"
-                    android:id="@+id/itemNombre"
+                    android:textAlignment="center"
+                    android:id="@+id/itemNombreProducto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="Producto"
                     android:textSize="20sp"
                     />
 
                 <TextView
                     android:layout_margin="10dp"
-                    android:id="@+id/itemPrecio"
+                    android:id="@+id/itemPrecioProducto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="" />
+                    android:text="$ 100" />
 
                 <Button
-                    android:id="@+id/itemFavorito"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:height="48dp"
-                    android:minHeight="48dp"
-                    android:text="Añadir ❤"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:id="@+id/itemBtnProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Añadir ❤️" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

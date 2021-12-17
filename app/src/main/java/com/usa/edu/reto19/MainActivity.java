@@ -32,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle sInstanceState) {
         super.onCreate(sInstanceState);
-        setContentView(R.layout.activity_main);
-        /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         Objects.requireNonNull(getSupportActionBar()).hide();
         try{
@@ -45,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             Log.e("ERROR DE APP: ", e.getMessage());
             e.printStackTrace();
-        }*/
+        }
         Helpers.actionBar(Objects.requireNonNull(getSupportActionBar()));
         TextView txtHome = findViewById(R.id.txtHomeInicio);
-        txtHome.setText("¡Inicio!");
+        txtHome.setText("¡Cargando...!");
     }
 
     /**
