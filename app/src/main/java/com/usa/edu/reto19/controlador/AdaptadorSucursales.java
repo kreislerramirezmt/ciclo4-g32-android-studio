@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.usa.edu.reto19.Helpers;
 import com.usa.edu.reto19.R;
 import com.usa.edu.reto19.modelo.Sucursal;
+import com.usa.edu.reto19.vista.MapActivity;
 import com.usa.edu.reto19.vista.MapsActivity;
 
 import java.util.ArrayList;
@@ -39,10 +40,10 @@ public class AdaptadorSucursales extends RecyclerView.Adapter<AdaptadorSucursale
         holder.itemNombre.setText(sucursales.get(position).getNombre());
         holder.itemImagen.setImageResource(sucursales.get(position).getImagen());
         holder.itemBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(v.getContext(), MapsActivity.class);
-            //Bundle bundle = new Bundle();
-            //bundle.putParcelableArrayList("sucursales", (ArrayList)sucursales);
-            //intent.putExtras(bundle);
+            Intent intent = new Intent(v.getContext(), MapActivity.class);
+            intent.putExtra("nombre", sucursales.get(position).getNombre());
+            intent.putExtra("latitud", sucursales.get(position).getLatitud());
+            intent.putExtra("longitud", sucursales.get(position).getLongitud());
             v.getContext().startActivity(intent);
         });
     }

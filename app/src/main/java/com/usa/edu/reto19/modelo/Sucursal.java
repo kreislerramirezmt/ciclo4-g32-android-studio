@@ -3,13 +3,14 @@ package com.usa.edu.reto19.modelo;
 public class Sucursal {
     public int id;
     public String nombre;
+    private String direccion;
     public double longitud;
     public double latitud;
     public int imagen;
-    public String descripcion;
 
-    public Sucursal(String nombre, double latitud, double longitud, int imagen) {
+    public Sucursal(String nombre, String direccion, double latitud, double longitud, int imagen) {
         this.nombre = nombre;
+        this.direccion = direccion;
         this.latitud = latitud;
         this.longitud = longitud;
         this.imagen = imagen;
@@ -55,11 +56,11 @@ public class Sucursal {
         this.imagen = imagen;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

@@ -42,7 +42,7 @@ public class SucursalesActivity extends AppCompatActivity {
         txtHome.setText("¡Sucursales!");
         rcvSucursales = (RecyclerView) findViewById(R.id.rcvSucursales);
         rcvSucursales.setLayoutManager(new LinearLayoutManager(this));
-        new SucursalesActivity.cconsultarSucursalesAsync(SucursalesActivity.this).execute();
+        new SucursalesActivity.consultarSucursalesAsync(SucursalesActivity.this).execute();
 
     }
 
@@ -62,15 +62,15 @@ public class SucursalesActivity extends AppCompatActivity {
         sucursales = new ArrayList<>();
         ArrayList<Sucursal> sucur = Contenedor.getSucursales();
         for(Sucursal s : sucur){
-            sucursales.add(new Sucursal(s.getNombre(),s.getLongitud(),s.getLatitud(),s.getImagen()));
+            sucursales.add(new Sucursal(s.getNombre(),s.getDireccion(),s.getLongitud(),s.getLatitud(),s.getImagen()));
         }
     }
-    public class cconsultarSucursalesAsync extends AsyncTask<Void, Void, Void> {
+    public class consultarSucursalesAsync extends AsyncTask<Void, Void, Void> {
 
 
         Context context;
 
-        public cconsultarSucursalesAsync(Context context) {
+        public consultarSucursalesAsync(Context context) {
             this.context = context;
 
         }
