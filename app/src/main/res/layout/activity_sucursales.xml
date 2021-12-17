@@ -22,6 +22,105 @@
             android:textColor="@color/restaurant_orange_700"
             android:textSize="34sp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="147dp"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
 
+            <ImageView
+                android:id="@+id/itemImagenSuc1"
+                android:layout_width="371dp"
+                android:layout_height="147dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/sucursalbogota"
+                tools:srcCompat="@drawable/sucursalbogota" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_margin="10dp"
+                        android:id="@+id/itemNombreSuc1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sucursal de Bogotá"
+                        android:textSize="20sp"
+                        />
+
+                    <!--<TextView
+                        android:layout_margin="10dp"
+                        android:id="@+id/itemPrecioFav"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />-->
+
+                    <Button
+                        android:layout_margin="10dp"
+                        android:id="@+id/itemBtnSucur1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ver en el mapa 🌍" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="147dp"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/itemImagenSuc2"
+                android:layout_width="371dp"
+                android:layout_height="147dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/sucursalsincelejo"
+                tools:srcCompat="@drawable/sucursalsincelejo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_margin="10dp"
+                        android:id="@+id/itemNombreSuc2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sucursal de Sincelejo"
+                        android:textSize="20sp"
+                        />
+
+                    <!--<TextView
+                        android:layout_margin="10dp"
+                        android:id="@+id/itemPrecioFav"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />-->
+
+                    <Button
+                        android:layout_margin="10dp"
+                        android:id="@+id/itemBtnSucur2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ver en el mapa 🌍" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
