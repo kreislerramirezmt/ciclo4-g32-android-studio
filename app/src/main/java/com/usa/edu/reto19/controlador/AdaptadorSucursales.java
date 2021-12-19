@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.usa.edu.reto19.Helpers;
 import com.usa.edu.reto19.R;
 import com.usa.edu.reto19.modelo.Sucursal;
@@ -38,7 +39,8 @@ public class AdaptadorSucursales extends RecyclerView.Adapter<AdaptadorSucursale
     @Override
     public void onBindViewHolder(@NonNull ViewHolderSucursales holder, int position) {
         holder.itemNombre.setText(sucursales.get(position).getNombre());
-        holder.itemImagen.setImageResource(sucursales.get(position).getImagen());
+        Picasso.get().load(sucursales.get(position).getImagenString()).into(holder.itemImagen);
+        //holder.itemImagen.setImageResource(sucursales.get(position).getImagen());
         holder.itemBtn.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), MapActivity.class);
             intent.putExtra("nombre", sucursales.get(position).getNombre());

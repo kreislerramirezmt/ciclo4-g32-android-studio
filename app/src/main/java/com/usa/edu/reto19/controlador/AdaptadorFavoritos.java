@@ -36,7 +36,7 @@ public class AdaptadorFavoritos extends RecyclerView.Adapter<AdaptadorFavoritos.
     public void onBindViewHolder(@NonNull ViewHolderFavoritos holder, int position) {
         holder.itemNombre.setText(productos.get(position).getNombre());
         holder.itemImagen.setImageResource(productos.get(position).getImagen());
-        holder.itemPrecio.setText("" + productos.get(position).getPrecio());
+        holder.itemPrecio.setText(Helpers.moneda(productos.get(position).getPrecio()));
         holder.itemBtn.setOnClickListener(v -> {
             MyOpenHelper moh = new MyOpenHelper(v.getContext());
             SQLiteDatabase db = moh.getWritableDatabase();

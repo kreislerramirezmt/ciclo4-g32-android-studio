@@ -7,6 +7,24 @@ public class Sucursal {
     public double longitud;
     public double latitud;
     public int imagen;
+    public String imagenString;
+
+    public String getImagenString() {
+        return imagenString;
+    }
+
+    public void setImagenString(String imagenString) {
+        this.imagenString = imagenString;
+    }
+
+    public Sucursal(int id, String nombre, String direccion, double longitud, double latitud, String imagenString) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.longitud = longitud;
+        this.latitud = latitud;
+        this.imagenString = imagenString;
+    }
 
     public Sucursal(String nombre, String direccion, double latitud, double longitud, int imagen) {
         this.nombre = nombre;

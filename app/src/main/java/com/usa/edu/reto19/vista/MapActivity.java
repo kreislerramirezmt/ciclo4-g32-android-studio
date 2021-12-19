@@ -40,7 +40,7 @@ public class MapActivity extends AppCompatActivity {
         String nombre = bundle.getString("nombre");
         double latitud = bundle.getDouble("latitud");
         double longitud = bundle.getDouble("longitud");
-        Toast.makeText(this,"lat: "+latitud+" long: "+longitud,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Mostrando: " + nombre, Toast.LENGTH_SHORT).show();
 
         GeoPoint puntoReferente = new GeoPoint(latitud, longitud);
 
@@ -60,7 +60,7 @@ public class MapActivity extends AppCompatActivity {
         myLocationoverlay.runOnFirstFix(() -> myMapController.animateTo(myLocationoverlay.getMyLocation()));
 
         ArrayList<OverlayItem> puntos = new ArrayList<OverlayItem>();
-        puntos.add(new OverlayItem(nombre, nombre, puntoReferente));
+        puntos.add(new OverlayItem(""+R.string.app_title, nombre, puntoReferente));
 
         ItemizedIconOverlay.OnItemGestureListener<OverlayItem> tap = new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
             @Override
