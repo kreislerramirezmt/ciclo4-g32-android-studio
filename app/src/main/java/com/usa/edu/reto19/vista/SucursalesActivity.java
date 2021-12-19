@@ -70,7 +70,6 @@ public class SucursalesActivity extends AppCompatActivity {
     }
     public void getWebserviceSucursales() {
         String url = WEBSERVICE.CRUD_SUCURSALES;
-
         sucursales = new ArrayList<>();
         ProgressDialog mProgressBar = new ProgressDialog(SucursalesActivity.this);
         mProgressBar.setCancelable(true);
