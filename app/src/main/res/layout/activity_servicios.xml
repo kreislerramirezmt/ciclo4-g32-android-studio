@@ -21,108 +21,11 @@
             android:textAlignment="center"
             android:textColor="@color/restaurant_orange_700"
             android:textSize="34sp" />
-
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvServicio"
             android:layout_width="match_parent"
-            android:layout_height="147dp"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_height="match_parent"
+            />
 
-            <ImageView
-                android:id="@+id/itemImagenServ1"
-                android:layout_width="371dp"
-                android:layout_height="147dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/serviciorecetas"
-                tools:srcCompat="@drawable/serviciorecetas" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_margin="10dp"
-                        android:paddingTop="30dp"
-                        android:id="@+id/itemNombreServ1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Aprende a cocinar las mejores recetas."
-                        android:textSize="20sp"
-                        />
-
-                    <!--<TextView
-                        android:layout_margin="10dp"
-                        android:id="@+id/itemPrecioFav"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="" />-->
-
-                    <!--<Button
-                        android:layout_margin="10dp"
-                        android:id="@+id/itemBtnServ"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Ver en el mapa 🌍" />-->
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="147dp"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <ImageView
-                android:id="@+id/itemImagenServ2"
-                android:layout_width="371dp"
-                android:layout_height="147dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/serviciosrecetarios"
-                tools:srcCompat="@drawable/serviciosrecetarios" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_margin="10dp"
-                        android:paddingTop="30dp"
-                        android:id="@+id/itemNombreServ2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Compra nuestros libros de recetas."
-                        android:textSize="20sp"
-                        />
-
-                    <!--<TextView
-                        android:layout_margin="10dp"
-                        android:id="@+id/itemPrecioFav"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="" />-->
-
-                    <!--<Button
-                        android:layout_margin="10dp"
-                        android:id="@+id/itemBtnServ"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Ver en el mapa 🌍" />-->
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
