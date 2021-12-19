@@ -14,6 +14,8 @@ import com.usa.edu.reto19.vista.ProductosActivity;
 import com.usa.edu.reto19.vista.ServiciosActivity;
 import com.usa.edu.reto19.vista.SucursalesActivity;
 
+import java.text.NumberFormat;
+
 
 public class Helpers{
     public static String defaultTxt = "Esta función se implementará en la siguiente versión :D";
@@ -43,6 +45,9 @@ public class Helpers{
     public static void toastMod(Context context){
         Toast.makeText(context,defaultTxt,Toast.LENGTH_LONG).show();
     }
+    public static void toastMod(Context context,String sms){
+        Toast.makeText(context,sms,Toast.LENGTH_LONG).show();
+    }
 
     @SuppressLint("NonConstantResourceId")
     public static void menuSelected(@NonNull Context context,@NonNull MenuItem item){
@@ -62,5 +67,12 @@ public class Helpers{
             default:
                 break;
         }
+    }
+
+    public static String moneda(Long price){
+        return NumberFormat.getCurrencyInstance().format(price);
+    }
+    public static String moneda(Integer price){
+        return NumberFormat.getCurrencyInstance().format(price);
     }
 }

@@ -6,25 +6,37 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.usa.edu.reto19.Helpers;
 import com.usa.edu.reto19.R;
 import com.usa.edu.reto19.controlador.AdaptadorFavoritos;
 import com.usa.edu.reto19.controlador.AdaptadorSucursales;
 import com.usa.edu.reto19.controlador.Contenedor;
 import com.usa.edu.reto19.controlador.MyOpenHelper;
+import com.usa.edu.reto19.controlador.WEBSERVICE;
+import com.usa.edu.reto19.modelo.MySingleton;
 import com.usa.edu.reto19.modelo.ProductoModels;
 import com.usa.edu.reto19.modelo.Sucursal;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -40,10 +52,9 @@ public class SucursalesActivity extends AppCompatActivity {
 
         TextView txtHome = findViewById(R.id.txtHomeSucursales);
         txtHome.setText("¡Sucursales!");
-        rcvSucursales = (RecyclerView) findViewById(R.id.rcvSucursales);
+        rcvSucursales = findViewById(R.id.rcvSucursales);
         rcvSucursales.setLayoutManager(new LinearLayoutManager(this));
-        new SucursalesActivity.consultarSucursalesAsync(SucursalesActivity.this).execute();
-
+        getWebserviceSucursales();
     }
 
     @Override
@@ -57,47 +68,48 @@ public class SucursalesActivity extends AppCompatActivity {
         Helpers.menuSelected(this,item);
         return super.onOptionsItemSelected(item);
     }
+    public void getWebserviceSucursales() {
+        String url = WEBSERVICE.CRUD_SUCURSALES;
 
-    public void consultarSucursales(){
         sucursales = new ArrayList<>();
-        ArrayList<Sucursal> sucur = Contenedor.getSucursales();
-        for(Sucursal s : sucur){
-            sucursales.add(new Sucursal(s.getNombre(),s.getDireccion(),s.getLongitud(),s.getLatitud(),s.getImagen()));
-        }
-    }
-    public class consultarSucursalesAsync extends AsyncTask<Void, Void, Void> {
+        ProgressDialog mProgressBar = new ProgressDialog(SucursalesActivity.this);
+        mProgressBar.setCancelable(true);
+        mProgressBar.setTitle("Consultando información...");
+        mProgressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressBar.show();
 
+        JsonObjectRequest jsonObject = new JsonObjectRequest
+                (Request.Method.GET, url, null, response -> {
+                    Log.w("TAG", "RESPONSE: " + response.toString());
+                    Sucursal sucTemp = null;
+                    try {
+                        JSONArray arraySucursal = response.getJSONArray("items");
+                        Log.w("TAG", "RESPONSE SUC: " + arraySucursal.toString());
+                        for (int i = 0; i < arraySucursal.length(); i++) {
 
-        Context context;
+                            JSONObject jsonObject1 = arraySucursal.getJSONObject(i);
+                            int id = jsonObject1.getInt("id");
+                            String nombre = jsonObject1.getString("nombre");
+                            String direccion = jsonObject1.getString("direccion");
+                            double latitud = jsonObject1.getDouble("latitud");
+                            double longitud = jsonObject1.getDouble("longitud");
+                            String imagen = jsonObject1.getString("imagen");
+                            sucTemp = new Sucursal(id, nombre, direccion, latitud, longitud, imagen);
+                            sucursales.add(sucTemp);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-        public consultarSucursalesAsync(Context context) {
-            this.context = context;
+                    AdaptadorSucursales adapter = new AdaptadorSucursales(sucursales);
+                    rcvSucursales.setAdapter(adapter);
+                    mProgressBar.cancel();
+                }, error -> {
+                    Helpers.toastMod(getApplicationContext(),"Algo salio mal" + error.toString());
+                    Log.e("TAG_ERR", "Algo salio mal" + error.toString());
+                    mProgressBar.cancel();
+                });
 
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try {
-                consultarSucursales();
-            }  catch (Exception e){
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-
-            AdaptadorSucursales adapter = new AdaptadorSucursales(sucursales);
-            rcvSucursales.setAdapter(adapter);
-            Toast.makeText(SucursalesActivity.this, "Sucursales cargadas exitosamente...", Toast.LENGTH_LONG).show();
-        }
+        MySingleton.getInstance(this).addToRequestQueue(jsonObject);
     }
 }

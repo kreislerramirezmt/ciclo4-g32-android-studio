@@ -40,8 +40,7 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
     public void onBindViewHolder(ViewHolderProductos holder, int position) {
         holder.itemNombre.setText(productos.get(position).getNombre());
         holder.itemImagen.setImageResource(productos.get(position).getImagen());
-        NumberFormat formatoImporte = NumberFormat.getCurrencyInstance();
-        holder.itemPrecio.setText(formatoImporte.format(productos.get(position).getPrecio()));
+        holder.itemPrecio.setText(Helpers.moneda(productos.get(position).getPrecio()));
         holder.itemBtnProducto.setOnClickListener(v -> {
             MyOpenHelper moh = new MyOpenHelper(v.getContext());
             SQLiteDatabase db = moh.getWritableDatabase();
