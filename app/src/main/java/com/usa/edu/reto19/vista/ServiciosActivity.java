@@ -51,7 +51,7 @@ public class ServiciosActivity extends AppCompatActivity {
         servicios = new ArrayList<>();
         ProgressDialog mProgressBar = new ProgressDialog(ServiciosActivity.this);
         mProgressBar.setCancelable(true);
-        mProgressBar.setTitle("Consultando información...");
+        mProgressBar.setTitle("Consultando servicios...");
         mProgressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressBar.show();
 

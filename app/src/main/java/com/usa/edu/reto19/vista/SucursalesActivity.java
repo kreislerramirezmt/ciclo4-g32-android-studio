@@ -73,7 +73,7 @@ public class SucursalesActivity extends AppCompatActivity {
         sucursales = new ArrayList<>();
         ProgressDialog mProgressBar = new ProgressDialog(SucursalesActivity.this);
         mProgressBar.setCancelable(true);
-        mProgressBar.setTitle("Consultando información...");
+        mProgressBar.setTitle("Consultando sucursales...");
         mProgressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressBar.show();
 
